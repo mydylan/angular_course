@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="gemStore">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<script src='node_modules/angular/angular.min.js'></script>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src='node_modules/angular/angular.min.js'></script>
+    <link rel="stylesheet" href="src/styles/style.css">
 </head>
-<body>
-	<p> Hello Angular</p>
+<body ng-controller="StoreController as store">
+    <div class="list-group" ng-repeat="product in store.products">
+        <div class="list-group-item" ng-hide="product.soldOut">
+            <product-title></product-title>
+            <product-gallery></product-gallery> 
+            <product-panels></product-panels>
+        </div>
+    </div>
+    <script src="dist/main.js"></script>
 </body>
 </html>
